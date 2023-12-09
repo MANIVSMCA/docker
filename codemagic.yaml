@@ -9,12 +9,23 @@ workflows:
 
       - name: Build iOS
         script: |
+          cd ios/
+          pod install
+          xcodebuild clean -workspace reactapp.xcworkspace -scheme myreact -configuration Release
+          xcodebuild archive -workspace reactapp.xcworkspace -scheme myreact -configuration Release -archivePath build/YourProjectName.xcarchive
+          xcodebuild -exportArchive -archivePath build/reactapp.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/YourExportPath
+
           npm run build
           npm run ios
           npx react-native run-ios --configuration=release
 
       - name: Build Android
         script: |
+          cd android && ./gradlew clean
+          cd .. && npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
+   
+          cd android && ./gradlew assembleRelease
           npm run android
           npx react-native run-android --variant=release
 
