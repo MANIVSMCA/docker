@@ -12,11 +12,11 @@ workflows:
           cd ios/
           pod install
           xcodebuild clean -workspace reactapp.xcworkspace -scheme myreact -configuration Release
-          xcodebuild archive -workspace reactapp.xcworkspace -scheme myreact -configuration Release -archivePath build/YourProjectName.xcarchive
-          xcodebuild -exportArchive -archivePath build/reactapp.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/YourExportPath
+          xcodebuild archive -workspace reactapp.xcworkspace -scheme myreact -configuration Release -archivePath build/reactapp.xcarchive
+          xcodebuild -exportArchive -archivePath build/reactapp.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/Downloads/react
 
           npm run build
-          npm run ios
+          #npm run ios
           npx react-native run-ios --configuration=release
 
       - name: Build Android
@@ -26,7 +26,7 @@ workflows:
 
    
           cd android && ./gradlew assembleRelease
-          npm run android
+          #npm run android
           npx react-native run-android --variant=release
 
       - name: Run Tests
