@@ -33,12 +33,12 @@ workflows:
       #     # Archive build artifacts, e.g., APK, IPA, or other necessary files
 
       # Additional steps for deployment or notifications can be added here
-      artifacts:
-       - build/**/*
-       - ios/build/*.ipa
-       - android/app/build/outputs/**/*.apk
+    artifacts:
+      - build/**/*
+      - ios/build/*.ipa
+      - android/app/build/outputs/**/*.apk
 
-      publishing:
+    publishing:
       email:
         recipients:
           - manimv1268@gmail.com   
