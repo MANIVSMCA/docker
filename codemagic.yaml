@@ -11,14 +11,13 @@ workflows:
         script: |
           cd ios/
           pod install
-          xcodebuild clean -workspace reactapp.xcworkspace -scheme myreact -configuration Release
-          xcodebuild archive -workspace reactapp.xcworkspace -scheme myreact -configuration Release -archivePath build/reactapp.xcarchive
-          xcodebuild -exportArchive -archivePath build/reactapp.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/Downloads/react
-
-          npm run build
-          #npm run ios
+          xcodebuild clean -workspace Coffee_Shop_App.xcworkspace -scheme Coffee_Shop_App -configuration Release
+          xcodebuild archive -workspace Coffee_Shop_App.xcworkspace -scheme Coffee_Shop_App -configuration Release -archivePath build/Coffee_Shop_App.xcarchive
+          xcodebuild -exportArchive -archivePath build/rCoffee_Shop_App.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/Downloads/react
           npx react-native run-ios --configuration=release
-
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties" 
       - name: Build Android
         script: |
           cd android && ./gradlew clean
