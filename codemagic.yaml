@@ -6,7 +6,6 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          #yarn install 
           npm install
 
       - name: Build iOS
@@ -36,9 +35,9 @@ workflows:
 
       # Additional steps for deployment or notifications can be added here
       artifacts:
-        - build/**/*
-        - ios/build/*.ipa
-        - android/app/build/outputs/**/*.apk
+       - build/**/*
+       - ios/build/*.ipa
+       - android/app/build/outputs/**/*.apk
 
       publishing:
       email:
