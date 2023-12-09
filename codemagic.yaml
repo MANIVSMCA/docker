@@ -20,13 +20,13 @@ workflows:
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties" 
       - name: Build Android
         script: |
-          cd android && ./gradlew clean
-          cd .. && npx Coffee_Shop_App bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+          cd android && chmod +x gradlew && ./gradlew assembleRelease
+          cd .. && npx docker bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
 
    
           cd android && ./gradlew assembleRelease
           #npm run android
-          npx Coffee_Shop_App run-android --variant=release
+          npx docker run-android --variant=release
 
       - name: Run Tests
         script: |
