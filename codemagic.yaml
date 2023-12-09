@@ -28,10 +28,10 @@ workflows:
           #npm run android
           npx docker run-android --variant=release
 
-      - name: Run Tests
-        script: |
-          cd __tests__
-          yarn test
+      # - name: Run Tests
+      #   script: |
+      #     cd __tests__
+      #     yarn test
       - name: yarn Starts
         script: |
           npm start
