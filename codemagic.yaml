@@ -5,8 +5,7 @@ workflows:
       flutter: latest
     scripts:
       - name: Install dependencies
-        script: |
-          npm install
+        script: npm install
 
       - name: Build iOS
         script: |
