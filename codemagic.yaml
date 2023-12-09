@@ -2,7 +2,7 @@ workflows:
   react_native_workflow:
     name: React Native Build and Test
     environment:
-      flutter: latest
+      flutter: stable
     scripts:
       - name: Install dependencies
         script: npm install
