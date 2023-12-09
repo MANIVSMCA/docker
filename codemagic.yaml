@@ -57,8 +57,8 @@ workflows:
     name: React Native iOS
     max_build_duration: 120
     instance_type: mac_mini_m1
-    integrations:
-      app_store_connect: codemagic
+    # integrations:
+    #   app_store_connect: codemagic
     # environment:
     #   ios_signing:
     #     distribution_type: app_store
@@ -79,11 +79,11 @@ workflows:
       #     PLIST=$CM_BUILD_DIR/$XCODE_SCHEME/Info.plist
       #     PLIST_BUDDY=/usr/libexec/PlistBuddy
       #     $PLIST_BUDDY -c "Add :ITSAppUsesNonExemptEncryption bool false" $PLIST
-      - name: Install CocoaPods dependencies
-        script: | 
-          cd ios && pod install
-      - name: Set up provisioning profiles settings on Xcode project
-        script: xcode-project use-profiles
+      # - name: Install CocoaPods dependencies
+      #   script: | 
+      #     cd ios && pod install
+      # - name: Set up provisioning profiles settings on Xcode project
+      #   script: xcode-project use-profiles
   
     artifacts:
      - build/**/outputs/apk/**/*.apk                   # relative path for a project in root directory
