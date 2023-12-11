@@ -26,7 +26,6 @@ workflows:
 
    
           cd android && ./gradlew assembleRelease
-        #  npm run android
           npx docker run-android --variant=release
 
       # - name: Run Tests
