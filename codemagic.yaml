@@ -35,7 +35,7 @@ workflows:
       - name: yarn Starts
         script: |
           npm start
-          yarn start    
+#          yarn start    
 
       # - name: Archive Build Artifacts
       #   script: |
