@@ -1,6 +1,7 @@
 workflows:
   react_native_workflow:
     name: React Native Build and Test
+    max_build_duration: 120
     environment:
       flutter: stable
     scripts:
@@ -32,7 +33,7 @@ workflows:
       #   script: |
       #     cd __tests__
       #     yarn test
-      - name: yarn Starts
+      - name: npm Starts
         script: |
           npm start
 #          yarn start    
