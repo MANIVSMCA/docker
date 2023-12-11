@@ -15,8 +15,8 @@ workflows:
           xcodebuild clean -workspace Coffee_Shop_App.xcworkspace -scheme Coffee_Shop_App -configuration Release
           xcodebuild archive -workspace Coffee_Shop_App.xcworkspace -scheme Coffee_Shop_App -configuration Release -archivePath build/Coffee_Shop_App.xcarchive
           xcodebuild -exportArchive -archivePath build/rCoffee_Shop_App.xcarchive -exportOptionsPlist exportOptions.plist -exportPath build/docker/ios
-        #  npx docker run-ios --configuration=release
-          npm run ios
+          npx docker run-ios --configuration=release
+      #  npm run ios
       - name: Set Android SDK location
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties" 
